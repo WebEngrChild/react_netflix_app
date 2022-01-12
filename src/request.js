@@ -1,6 +1,6 @@
-const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
-export const requests ={
+export const requests = {
     feachTrending:`/trending/all/week?api_key=${API_KEY}&language=en-us`,
     feachNetflixOriginals:`/discover/tv?api_key=${API_KEY}&with_networks=213`,
     feactTopRated:`/discover/tv?api_key=${API_KEY}&languager=en-us`,

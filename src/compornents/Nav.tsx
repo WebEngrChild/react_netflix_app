@@ -3,6 +3,7 @@ import "./Nav.scss";
 
 export const Nav = () => {
   const [show, setShow] = useState(false);
+  //スクロールの値に合わせてNav-blackを出し分けるための真偽値を設定
   const handleShow = () => {
     if (window.scrollY > 100) {
       setShow(true);
@@ -11,9 +12,11 @@ export const Nav = () => {
     }
   };
   
+  //スクロールに反応するイベントを設定
   window.addEventListener("scroll", handleShow);
 
   return (
+    //条件に合わせてナビバーを設定
     <div className={`Nav ${show && "Nav-black"}`}>
       <img
         className="Nav-logo"

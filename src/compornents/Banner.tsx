@@ -12,26 +12,30 @@ type movieProps = {
 };
 
 export const Banner = () => {
+  //初期値は空のオブジェクト
   const [movie, setMovie] = useState<movieProps>({});
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(requests.feachNetflixOriginals);
 
-      //apiからランダムで値を取得している
+      /**
+       * APIで取得した映画データをランダム取得
+       * useEffectの第二引数を空配列にすると初回レンダリング時のみ実行
+       */
       setMovie(
         request.data.results[
-          Math.floor(Math.random() * request.data.results.length - 1)
+          Math.floor(Math.random() * request.data.results.length)
         ]
       );
-      return request;
     }
     fetchData();
   }, []);
 
-  // descriptionの切り捨てよう関数
+  // descriptionの切り捨て用関数
   function truncate(str: any, n: number) {
     // undefinedを弾く
     if (str !== undefined) {
+      //150文字以降を切り取って...にする
       return str.length > n ? str?.substr(0, n - 1) + "..." : str;
     }
   }
@@ -47,6 +51,7 @@ export const Banner = () => {
     >
       <div className="Banner-contents">
         <h1 className="banner-title">
+          {/* ?.の形はNullableな条件演算子と呼ばれるものでundefinedが返却される */}
           {movie?.title || movie?.name || movie?.orignal_name}
         </h1>
         <div className="Banner-buttons">

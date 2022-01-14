@@ -77,7 +77,6 @@ export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
             //<Row />でのみisLargeRowが渡されるため条件分岐している
             className={`Row-poster ${isLargeRow && "Row-poster-large"}`}
             src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
-            // src={`${base_url}`}
             alt={movie.name}
             //クリックイベントはカテゴライズ毎のみに反応
             onClick={() => handleClick(movie)}

@@ -10,11 +10,7 @@ function App() {
     <div className="App">
     <Nav />
     <Banner />
-    <Row
-      title="NETFLIX ORIGUINALS"
-      fetchUrl={requests.feachNetflixOriginals}
-      isLargeRow
-    />
+    <Row title="NETFLIX ORIGUINALS" fetchUrl={requests.feachNetflixOriginals} isLargeRow />
     <Row title="Top Rated" fetchUrl={requests.feactTopRated} />
     <Row title="Action Movies" fetchUrl={requests.feactActionMovies} />
     <Row title="Comedy Movies" fetchUrl={requests.feactComedyMovies} />

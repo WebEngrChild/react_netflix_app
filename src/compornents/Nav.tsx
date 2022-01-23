@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Nav.scss";
 
 export const Nav = () => {
+  //showのデフォルト値にはfalseが入っている
   const [show, setShow] = useState(false);
   //スクロールの値に合わせてNav-blackを出し分けるための真偽値を設定
   const handleShow = () => {
@@ -12,7 +13,7 @@ export const Nav = () => {
     }
   };
   
-  //スクロールに反応するイベントを設定
+  //スクロールに反応するイベントを設定 → イベントはこのタブに設定される
   window.addEventListener("scroll", handleShow);
 
   return (

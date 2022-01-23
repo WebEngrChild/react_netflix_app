@@ -52,6 +52,7 @@ export const Banner = () => {
       <div className="Banner-contents">
         <h1 className="banner-title">
           {/* ?.の形はNullableな条件演算子と呼ばれるものでundefinedが返却される */}
+          {/* or条件で該当するものがあれば表示 */}
           {movie?.title || movie?.name || movie?.orignal_name}
         </h1>
         <div className="Banner-buttons">

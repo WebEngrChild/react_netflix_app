@@ -6,12 +6,14 @@ import YouTube from 'react-youtube';
 const base_url = "https://image.tmdb.org/t/p/original";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
+//App.tsxから渡されるもの
 type Props = {
   title: string;
   fetchUrl: string;
   isLargeRow?: boolean;
 };
 
+//apiでの映画取得結果の型判定
 type Movie = {
   id: string;
   name: string;
@@ -32,10 +34,11 @@ type Options = {
 };
 
 export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
+  //Movie型が配列で複数、かつ初期値は空配列
   const [movies, setMovies] = useState<Movie[]>([]);
   const [trailerUrl, setTrailerUrl] = useState<string | null>("");
 
-  //App.tsxからpropsで渡されるurlが更新される度にAPIを叩き動画を取得
+  //App.tsxからRowsが複数行が渡される。propsで渡されるurlが更新される度にAPIを叩き動画を取得。
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);
@@ -83,8 +86,9 @@ export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
           />
         ))}
       </div>
-      {/* youtubeコンポーネントを表示 */}
-      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+      {/* 飛び先リンク&youtubeコンポーネントを表示 */}
+      {trailerUrl && 
+      <YouTube videoId={trailerUrl} opts={opts} />}
     </div>
   );
 };

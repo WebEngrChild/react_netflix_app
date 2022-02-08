@@ -79,6 +79,7 @@ export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
             key={movie.id}
             //<Row />でのみisLargeRowが渡されるため条件分岐している
             className={`Row-poster ${isLargeRow && "Row-poster-large"}`}
+            // テンプレート文字列を使い{$hoge}{$huga}の形で文字列を連結することができる
             src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
             alt={movie.name}
             //クリックイベントはカテゴライズ毎のみに反応

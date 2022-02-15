@@ -38,7 +38,7 @@ export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [trailerUrl, setTrailerUrl] = useState<string | null>("");
 
-  //App.tsxからRowsが複数行が渡される。propsで渡されるurlが更新される度にAPIを叩き動画を取得。
+  //App.tsxからRowsが一つずつ渡される。propsで渡されるurlが更新される度にAPIを叩き動画を取得。
   useEffect(() => {
     async function fetchData() {
       const request = await axios.get(fetchUrl);

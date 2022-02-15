@@ -24,6 +24,7 @@ export const Banner = () => {
        */
       setMovie(
         request.data.results[
+          //  0 以上 1 未満 (0 は含むが、 1 は含まない) の範囲で浮動小数点の擬似乱数を返却
           Math.floor(Math.random() * request.data.results.length)
         ]
       );

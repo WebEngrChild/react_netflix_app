@@ -82,13 +82,14 @@ export const Row = ({ title, fetchUrl, isLargeRow }: Props) => {
             // テンプレート文字列を使い{$hoge}{$huga}の形で文字列を連結することができる
             src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
             alt={movie.name}
-            //クリックイベントはカテゴライズ毎のみに反応
+            //クリックイベントは同じカテゴライズ毎のみに反応
             onClick={() => handleClick(movie)}
           />
         ))}
       </div>
       {/* 飛び先リンク&youtubeコンポーネントを表示 */}
       {trailerUrl && 
+      // propsとして渡す → 予告編表示する
       <YouTube videoId={trailerUrl} opts={opts} />}
     </div>
   );
